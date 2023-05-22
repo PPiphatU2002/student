@@ -13,7 +13,6 @@ import login from './login.js';
 import Correct from './Correct.js'
 import './Class.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useNavigate } from "react-router-dom";
 
 export default function Subject() {
   const [subject, setSubject] = useState([]);
@@ -21,11 +20,6 @@ export default function Subject() {
   useEffect(() => {
       GetSubject()
   }, [])
-
-  const navigate = useNavigate();
-  async function login() {
-    await navigate("/login");
-  }
 
   const GetSubject = () => {
       fetch("https://jittery-lime-snail.cyclic.app/Subject")

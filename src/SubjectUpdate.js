@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 export default function SubjectUpdate() {  
   const { s_id } = useParams();
   useEffect(() => {
-    fetch("https://jittery-lime-snail.cyclic.app/SubjectUpdate" + s_id)
+    fetch("https://jittery-lime-snail.cyclic.app/SubjectUpdate/" + s_id)
       .then(res => res.json())
       .then(result => {
         if (result && result.subject && result.subject.s_id) {
@@ -65,11 +65,12 @@ export default function SubjectUpdate() {
   const [time, setTime] = useState('');
   const [day, setDay] = useState('');
   const [credit, setCredit] = useState('');
+
   return (
     <Container sx={{ p:2 }} maxWidth="sm">    
       <div>
         <Typography component="h1" variant="h5">
-          Create
+          Edit
         </Typography>
         <form onSubmit={handleSubmit}>
           <Grid container sx={{ pt:2 }} spacing={2}>
@@ -78,7 +79,7 @@ export default function SubjectUpdate() {
                 variant="outlined"
                 required
                 fullWidth
-                number="name"
+                name="s_name"  // Corrected attribute
                 label="Name"
                 onChange={(e) => setS_Name(e.target.value)}
               />
@@ -88,7 +89,7 @@ export default function SubjectUpdate() {
                 variant="outlined"
                 required
                 fullWidth
-                number="faculty"
+                name="faculty"  // Corrected attribute
                 label="Faculty"
                 onChange={(e) => setFaculty(e.target.value)}
               />
@@ -98,7 +99,7 @@ export default function SubjectUpdate() {
                 variant="outlined"
                 required
                 fullWidth
-                number="cost"
+                name="cost"  // Corrected attribute
                 label="Cost"
                 onChange={(e) => setCost(e.target.value)}
               />
@@ -108,7 +109,7 @@ export default function SubjectUpdate() {
                 variant="outlined"
                 required
                 fullWidth
-                number="photo"
+                name="photo"  // Corrected attribute
                 label="Photo"
                 onChange={(e) => setPhoto(e.target.value)}
               />
@@ -118,7 +119,7 @@ export default function SubjectUpdate() {
                 variant="outlined"
                 required
                 fullWidth
-                number="time"
+                name="time"  // Corrected attribute
                 label="Time"
                 onChange={(e) => setTime(e.target.value)}
               />
@@ -128,7 +129,7 @@ export default function SubjectUpdate() {
                 variant="outlined"
                 required
                 fullWidth
-                number="day"
+                name="day"  // Corrected attribute
                 label="Day"
                 onChange={(e) => setDay(e.target.value)}
               />
@@ -138,7 +139,7 @@ export default function SubjectUpdate() {
                 variant="outlined"
                 required
                 fullWidth
-                number="credit"
+                name="credit"  // Corrected attribute
                 label="Credit"
                 onChange={(e) => setCredit(e.target.value)}
               />
@@ -150,8 +151,8 @@ export default function SubjectUpdate() {
                 variant="contained"
                 color="primary"
               >
-                Create
-            </Button>
+                Edit
+              </Button>
             </Grid>
           </Grid>
         </form>
